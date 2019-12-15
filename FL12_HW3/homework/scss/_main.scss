@@ -1,0 +1,226 @@
+
+@mixin buttons {
+    background: map-get($colors, button);
+    color: map-get($colors, whit);
+    font-family: $fontSans;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    width: 140px;
+    height: 50px;
+}
+@mixin links {
+    color: map-get($colors, whit);
+    font-family: $fontSans;
+    line-height: 0;
+}
+
+@mixin highlightedText ($color, $width, $height, $left, $bottom ) {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: $color;
+    width: $width;
+    height: $height;
+    left: $left;
+    bottom: $bottom;
+}
+
+body {
+    color: map-get($colors, main);
+    background-color:map-get($colors, main) ;
+    margin: 0;
+  padding: 0; 
+ 
+}
+
+.header {
+    background: $headerBackPic no-repeat center;
+    background-size: cover;
+    border-radius: 0 0 40% 0;
+    width: 100%;
+    height: 720px;
+}
+
+.header-wrap{
+    width: 100%;
+  margin: auto;
+  padding: 20px 150px;
+}
+
+
+.landing-logo {
+    display: flex;
+     img {
+        width: 45px;
+        height: 45px;
+    }
+    p {
+        text-transform: uppercase;
+        margin: 0 0 0 10px;
+        font-size: 25px;
+        font-weight: bold;
+        color: map-get($colors, mainFont);
+        font-family: $fontHind;
+        
+    }
+    span {
+        text-transform: none;
+        display: block;
+            font-size: 10px;
+            text-align: center;
+    }
+}
+
+.header_heading {
+    position: relative;
+    color: map-get($colors, mainFont);
+    font-family: $fontSans;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 1;
+    width: 500px;
+    &::before {
+        @include highlightedText(map-get($colors, highlight), 43%, 40px, 0, 2px)
+    }
+    
+}
+
+
+.header_text {
+    font-family: $fontSans;
+    margin-bottom: 55px;
+    color: map-get($colors, mainFont);
+    white-space: pre-line;
+}
+.header_button {
+    @include buttons;
+}
+
+.login {
+    @include links; 
+    margin-left: 150px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.section_text {
+    text-align: center;
+    position: relative;
+    font-family: $fontSans;
+    color: map-get($colors, mainFont);
+    font-size: 35px;
+    z-index: 1;
+    font-weight: 600;
+     &::before {
+            @include highlightedText(map-get($colors, highlight), 160px, 32px, 50.5%, 0px)
+        }
+}
+
+.section_card_wrap{
+    margin-bottom: 130px;
+    display: flex;
+    flex-direction: column;
+}
+.section_card {
+    display: flex;
+    height: 250px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    background-color: map-get($colors, container);
+    align-self: center;
+    width: 60%;
+}
+
+.section_card_img {
+    border-radius: 5px;
+    width: 450px;
+}
+.section_card_right_container {
+    margin-left: 90px;
+    width: 470px;
+    height: 200px;
+}
+
+.section_card_heading {
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    font-family: $fontSans;
+    color: map-get($colors, whit);
+}
+
+.section_card_text {
+    font-family: $fontFresca;
+    font-size: 16px;
+    line-height: 25px;
+    color: #c0c3ce;
+}
+
+.section_link {
+     @include links;
+    align-self: center;
+}
+.section_banner {
+    position: relative;
+    width: 900px;
+    height: 110px;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: -73px;
+    background: linear-gradient(to right,  map-get($colors, button),  map-get($colors, highlight))
+}
+
+.section_banner_heading {
+    position: relative;
+    z-index: 1;
+    color: map-get($colors, mainFont);
+    font-family: $fontSans;
+    font-size: 30px;
+    font-weight: bold;
+    &::before{
+        @include highlightedText(map-get($colors, highlight), 60px, 33px, 30%, 3px)
+    }
+}
+
+.section_banner_text {
+    font-family: $fontSans;
+    color: #c0c3ce;
+    line-height: 0;
+}
+
+.section_banner_button {
+    @include buttons;
+}
+
+.footer {
+    background-color: map-get($colors, container);
+}
+
+.footer-wrap {
+    display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer_logo {
+    padding-top: 95px;
+    margin-bottom: 33px;
+    p{
+        color: map-get($colors, whit);
+    }
+}
+
+.footer_text {
+    font-family: $fontSans;
+    width: 300px;
+    font-size: 14px;
+    color: #c0c3ce;
+    padding-top: 95px;
+}
+.footer-cr {
+    @extend .footer_text
+}
